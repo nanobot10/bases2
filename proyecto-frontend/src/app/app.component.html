@@ -1,45 +1,4 @@
-<div class="container mt-5">
-
-    <h1>
-        Ranking
-    </h1>
-
-    <div class="table-responsive">
-
-        <table class="table table-striped table-condensed" *ngIf="anualRanking">
-            <thead class="thead-dark">
-                <tr>
-                    <th *ngFor="let meta of anualRanking.metaData">
-                        {{meta.name}}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of anualRanking.rows">
-                    <td>{{item[0]}}</td>
-                    <td>{{item[1]}}</td>
-                    <td>{{item[2]}}</td>
-                    <td>{{item[3]}}</td>
-                    <td>{{item[4]}}</td>
-                    <td>{{item[5]}}</td>
-                    <td>{{item[6]}}</td>
-                    <td>{{item[7]}}</td>
-                    <td>{{item[8]}}</td>
-                    <td>{{item[9]}}</td>
-                    <td>{{item[10]}}</td>
-                    <td>{{item[11]}}</td>
-                    <td>{{item[12]}}</td>
-                    <td>{{item[13]}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
-
-    <div class="table-responsive">
-        <canvas id="realtime">{{ rankingChart }}</canvas>
-    </div>
-
-
-
+<app-navbar></app-navbar>
+<div>
+    <router-outlet></router-outlet>
 </div>

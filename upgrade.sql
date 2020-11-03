@@ -35,6 +35,14 @@ create table banco_activo (
     references banco (id)
 );
 
+create sequence users_id;
+create table users (
+    id number(19) primary key,
+    name varchar2(255),
+    username varchar2(255),
+    password varchar2(255)
+);
+
 
 
 CREATE TABLE "ACTIVO_CONSOLIDADO" (	
@@ -177,70 +185,70 @@ select months_between(to_date('31/07/2019','DD/MM/YYYY'),last_day(sysdate)) from
 
 
 create or replace view anual_ranking as 
-select select b.nombre as "PERFIL FINANCIERO",
+select  b.nombre as "PERFIL FINANCIERO",
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-15))))
+where fecha = trunc(last_day(add_months(sysdate, (-16))))
 ) where banco_id = b.id) as Julio,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-14))))
+where fecha = trunc(last_day(add_months(sysdate, (-15))))
 ) where banco_id = b.id) as Agosto,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-13))))
+where fecha = trunc(last_day(add_months(sysdate, (-14))))
 ) where banco_id = b.id) as Septiembre,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-12))))
+where fecha = trunc(last_day(add_months(sysdate, (-13))))
 ) where banco_id = b.id) as Octubre,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-11))))
+where fecha = trunc(last_day(add_months(sysdate, (-12))))
 ) where banco_id = b.id) as Noviembre,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-10))))
+where fecha = trunc(last_day(add_months(sysdate, (-11))))
 ) where banco_id = b.id) as Diciembre,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-9))))
+where fecha = trunc(last_day(add_months(sysdate, (-10))))
 ) where banco_id = b.id) as Enero,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-8))))
+where fecha = trunc(last_day(add_months(sysdate, (-9))))
 ) where banco_id = b.id) as Febrero,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-7))))
+where fecha = trunc(last_day(add_months(sysdate, (-8))))
 ) where banco_id = b.id) as Marzo,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-6))))
+where fecha = trunc(last_day(add_months(sysdate, (-7))))
 ) where banco_id = b.id) as Abril,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-5))))
+where fecha = trunc(last_day(add_months(sysdate, (-6))))
 ) where banco_id = b.id) as Mayo,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-4))))
+where fecha = trunc(last_day(add_months(sysdate, (-5))))
 ) where banco_id = b.id) as Junio,
 (select rank from (
 select banco_id,fecha, valor as total, rank() over (order by valor desc) as rank
 from banco_activo
-where fecha = trunc(last_day(add_months(sysdate, (-3))))
+where fecha = trunc(last_day(add_months(sysdate, (-4))))
 ) where banco_id = b.id) as Julio_2020
 from banco b;

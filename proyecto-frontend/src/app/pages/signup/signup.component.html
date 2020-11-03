@@ -1,0 +1,36 @@
+<div class="container mt-5 animated fadeIn fast">
+
+    <h2>Registro</h2>
+
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="signUp()">
+        <div class="form-group">
+            <label>Nombre Completo</label>
+            <input type="text" placeholder="Nombre de usuario" class="form-control" formControlName="name" [class.is-invalid]="nameValid" maxlength="255">
+            <ul *ngIf="nameValid" class="text-danger">
+                <li><small class="text-danger">El nombre es requerido</small></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label>Usuario</label>
+            <input type="text" placeholder="Nombre de usuario" class="form-control" formControlName="username" [class.is-invalid]="usernameValid" maxlength="255">
+            <ul *ngIf="usernameValid" class="text-danger">
+                <li><small class="text-danger">El nombre de usuario es requerido</small></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" placeholder="Contraseña" class="form-control" formControlName="password" [class.is-invalid]="passwordValid" maxlength="20">
+            <ul *ngIf="passwordValid" class="text-danger">
+                <li><small class="text-danger">La contraseña es requerida</small></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label>Repetir Contraseña</label>
+            <input type="password" placeholder="Repetir Contraseña" class="form-control" formControlName="repeatPassword" [class.is-invalid]="repeatPasswordValid" maxlength="20">
+            <ul *ngIf="repeatPasswordValid" class="text-danger">
+                <li><small class="text-danger">Repetir la contraseña es requerido</small></li>
+            </ul>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Registrar</button>
+    </form>
+    <a class="btn btn-success mt-2" [href]="'/login'">Login</a>

@@ -43,7 +43,7 @@ bankRoutes.get('/anual-ranking', (req, res) => __awaiter(void 0, void 0, void 0,
             connectString: 'localhost:1521/orcl'
         });
         console.log('Connected to database');
-        const result = yield connection.execute('select * from anual_ranking');
+        const result = yield connection.execute('select * from anual_ranking order by julio_2020');
         yield connection.close();
         return res.json({
             success: true,

@@ -1,0 +1,28 @@
+<div class="container mt-5 animated fadeIn fast">
+    <h2>Login</h2>
+    <hr>
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" placeholder="Nombre de usuario" class="form-control" formControlName="username" maxlength="255">
+                    <small *ngIf="usernameValid" class="text-danger">El nombre de usuario es requerido</small>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Contraseña" class="form-control" formControlName="password">
+                    <small *ngIf="passwordValid" class="text-danger">Debe ingresar la contraseña</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <a class="btn btn-success mt-2" [href]="'/signup'">Registrarse</a>
+    </div>
+</div>

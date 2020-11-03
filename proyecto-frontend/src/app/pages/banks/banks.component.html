@@ -1,0 +1,21 @@
+<div class="container mt-5">
+
+    <div class="table-responsive">
+        <table class="table table-striped table-condensed" *ngIf="banks">
+            <thead class="thead-dark">
+                <tr>
+                    <th *ngFor="let meta of banks.metaData">
+                        {{meta.name}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of banks.rows">
+                    <td>{{item[0]}}</td>
+                    <td>{{item[1]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

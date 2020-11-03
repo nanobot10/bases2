@@ -1,4 +1,3 @@
-import { json } from "body-parser";
 import { Router, Response, Request } from "express";
 const oracledb = require('oracledb');
 
@@ -49,7 +48,7 @@ bankRoutes.get('/anual-ranking', async (req: any, res: Response) => {
 
         console.log('Connected to database');
 
-        const result = await connection.execute('select * from anual_ranking');
+        const result = await connection.execute('select * from anual_ranking order by julio_2020');
         
         await connection.close();
         
